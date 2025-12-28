@@ -27,7 +27,7 @@ window#waybar {
 }
 
 #battery.charging {
-	color: rgba(0, 255, 100, 0.6);
+	color: rgba(0, 255, 155, 1);
 }
 
 @keyframes blink {
