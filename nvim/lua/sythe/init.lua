@@ -93,3 +93,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.hl.on_yank()
     end,
 })
+
+-- tab stuff
+vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>")   --open new tab
+vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>") --close current tab
+vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>")     --go to next
+vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>")     --go to pre
+vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>") --open current tab in new tab
+
+--split management
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+-- split window vertically
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+-- split window horizontally
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+-- close current split window
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+-- navigate between tabs
+vim.keymap.set("n", "<leader>ss", "<C-w><C-p>", { desc = "Naviage split windows" })
+
