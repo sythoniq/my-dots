@@ -11,15 +11,15 @@ window#waybar {
 	background: transparent;
 }
 
-#clock, #battery, #tray, #network, #pulseaudio, #backlight, #workspaces button, #window {
+#clock, #battery, #network, #pulseaudio, #backlight, #workspaces button, #window {
 	padding: 0.2em;
-	border-top: 1px solid #429535;
-	margin: 0 0.4em;
-	color: #18561E;
+	border-top: 1px solid rgba(150, 150, 150, 0.6);
+  margin: 0 0.4em;
+	color: rgba(200, 200, 200, 0.8);
 }
 
 #battery.warning {
-	color: rgba(255, 210, 4, 1);
+  color: rgba(255, 0, 0, 0.7);
 }
 
 #battery.critical { 
@@ -27,7 +27,7 @@ window#waybar {
 }
 
 #battery.charging {
-	color: rgba(0, 255, 155, 1);
+	color: rgba(0, 255, 50, 1);
 }
 
 @keyframes blink {
