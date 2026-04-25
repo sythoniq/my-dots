@@ -1,6 +1,5 @@
 user-dirs.locale
 user-dirs.dirs 
-vivaldi 
 mirage 
 ibus 
 go 
@@ -14,3 +13,5 @@ mimeapps.list
 dolphinrc
 .gsd-keyboard.settings-ported
 Code - OSS/
+mozilla
+zen
