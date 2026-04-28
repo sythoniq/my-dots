@@ -137,3 +137,18 @@ window#waybar.empty #window {
 	animation-direction: alternate;
 }
 
+#pulseaudio {
+	color: #59C2FF;
+	background: #0F1419;
+	border-radius: 50px 50px;
+	margin: 5px;
+	padding: 2px 15px;
+}
+
+#network {
+	color: #FF8F40;
+	background: #0F1419;
+	border-radius: 50px 50px;
+	margin: 5px;
+	padding: 2px 15px;
+}
