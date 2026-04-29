@@ -13,8 +13,7 @@
 	"custom/menu",
 	"custom/separator#blank_2",
 	"hyprland/workspaces",
-	"custom/separator#blank_2",
-	"tray"
+	"custom/separator#blank_2"
 ],
 
 "modules-center": [
@@ -24,22 +23,25 @@
 "modules-right": [
   "network",
 	"battery",
+  "backlight",
   "pulseaudio#1"
 	],
 
-"hyprland/window": {
-	"format": "{}",
-	"max-length": 25,
-	"separate-outputs": true,
-	"offscreen-css": true,
-	"offscreen-css-text": "(inactive)",
-	"rewrite": {
-		"(.*) — Mozilla Firefox": " $1",
-		"(.*) - fish": "> [$1]",
-		"(.*) - zsh": "> [$1]",
-		"(.*) - $term": "> [$1]"
-	}
+
+"backlight": {
+	"interval": 2,
+	"align": 0,
+	"rotate": 0,
+	"format": "{icon} {percent}%",
+	"format-icons": ["","","","","","","","","","","","","","",""],
+	"tooltip-format": "backlight {percent}%",
+	"icon-size": 10,
+	"on-click": "",
+	"on-click-middle": "",
+	"on-click-right": "",
+	"on-update": ""
 },
+
 
 // CIRCLES Style
 "hyprland/workspaces": {
@@ -60,11 +62,8 @@
 },
 
 "battery": {
-	//"interval": 5,
 	"align": 0,
 	"rotate": 0,
-	//"bat": "BAT1",
-	//"adapter": "ACAD",
 	"full-at": 100,
 	"design-capacity": false,
 	"states": {
@@ -109,6 +108,7 @@
   "format-bluetooth-muted": " {icon}",
   "format-muted": "󰸈",
   "format-icons": {
+      "...": "",
       "headphone": "",
       "hands-free": "",
       "headset": "",

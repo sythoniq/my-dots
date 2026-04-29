@@ -70,7 +70,8 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("v", "p", '"_dp', opts)
 
 -- Copies or Yank to system clipboard
-vim.keymap.set("n", "<leader>Y", [["+Y]], opts)
+vim.keymap.set({'n', 'x'}, '<leader>y', '"+y')
+vim.keymap.set({'n', 'x'}, '<leader>p', '"+p')
 
 -- leader d delete wont remember as yanked/clipboard when delete pasting
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])

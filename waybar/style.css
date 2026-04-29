@@ -103,7 +103,16 @@ window#waybar.empty #window {
 	padding: 2px 15px;
 }
 
+#backlight,
 #battery {
+	color: #6DDDE3;
+	background: #0F1419;
+	border-radius: 50px 50px;
+	margin: 5px;
+	padding: 2px 15px;
+}
+
+#backlight {
 	color: #6DDDE3;
 	background: #0F1419;
 	border-radius: 50px 50px;
