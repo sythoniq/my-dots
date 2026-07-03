@@ -165,28 +165,26 @@ do
   -- or just use <C-\><C-n> to exit terminal mode
   vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+  vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'moves lines down in visual selection' })
+  vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'moves lines up in visual selection' })
+
+  vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y')
+  vim.keymap.set({ 'n', 'x' }, '<leader>p', '"+p')
+
   vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
   vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
   vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
   vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
   -- Keybinds to make split navigation easier.
-  --  Use CTRL+<hjkl> to switch between windows
-  --
-  --  See `:help wincmd` for a list of all window commands
-  vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-  vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-  vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-  vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
-  -- Uhh actual splitting stuff... dk why that doesnt exist here
   vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })
   vim.keymap.set('n', '<leader>sh', '<C-w>h', { desc = 'Split window horizontally' })
   vim.keymap.set('n', '<leader>sx', '<cmd>close<CR>', { desc = 'Close split window' })
   vim.keymap.set('n', '<leader>se', '<C-w>=', { desc = 'Equalize split windows size' })
+  vim.keymap.set('n', '<leader>zz', '<C-w><C-p>', { desc = 'Naviage btn windows' })
 
   -- Personally useful keymaps for me
-  vim.keymap.set("n", "<leader><leader>", vim.cmd.Ex)
+  vim.keymap.set('n', '<leader><leader>', vim.cmd.Ex)
 
   -- Highlight when yanking (copying) text
   --  Try it with `yap` in normal mode
@@ -327,19 +325,21 @@ do
   -- change the command under that to load whatever the name of that colorscheme is.
   --
   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-  vim.pack.add { gh 'folke/tokyonight.nvim' }
+  vim.pack.add { { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' } }
   ---@diagnostic disable-next-line: missing-fields
-  require('tokyonight').setup {
-    transparent = true,
+  require('catppuccin').setup {
+    flavour = 'mocha',
+    transparent_background = true,
     styles = {
-      comments = { italic = false }, -- Disable italics in comments
+      comments = { 'italic' },
     },
+    no_bold = false,
   }
 
   -- Load the colorscheme here.
   -- Like many other themes, this one has different styles, and you could load
   -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-  vim.cmd.colorscheme 'tokyonight-night'
+  vim.cmd.colorscheme 'catppuccin'
 
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }
@@ -843,7 +843,8 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'javascript', 'typescript', 'tsx', 'jsx' }
+  local parsers =
+    { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'javascript', 'typescript', 'tsx', 'jsx' }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
@@ -908,7 +909,7 @@ do
   -- require 'kickstart.plugins.debug'
   -- require 'kickstart.plugins.indent_line'
   -- require 'kickstart.plugins.lint'
-  require 'kickstart.plugins.autopairs' 
+  require 'kickstart.plugins.autopairs'
   -- require 'kickstart.plugins.neo-tree'
   -- require 'kickstart.plugins.gitsigns' -- adds gitsigns recommended keymaps
 
