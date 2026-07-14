@@ -17,7 +17,8 @@
 ],
 
 "modules-center": [
-	"clock#3"
+	"clock#3",
+  "custom/keyboard"
 ],
 		
 "modules-right": [
@@ -40,6 +41,12 @@
 	"on-click-middle": "",
 	"on-click-right": "",
 	"on-update": ""
+},
+
+"custom/keyboard" : {
+	"format": "",
+	"on-click": "~/.config/waybar/toggle-laptop-keyboard.sh",
+	"tooltip-format": "Toggle Laptop Keyboard"
 },
 
 
@@ -158,6 +165,7 @@
 	"interval": "once",
 	"tooltip": false
 },
+
 "custom/separator#blank_2": {
 	"format": "  ",
 	"interval": "once",
@@ -167,17 +175,6 @@
 "tray": {
 	"icon-size": 20,
 	"spacing": 4
-},
-
-"idle_inhibitor": {
-	"tooltip": true,
-	"tooltip-format-activated": "Idle_inhibitor active",
-	"tooltip-format-deactivated": "Idle_inhibitor not active",
-	"format": "{icon}",
-	"format-icons": {
-		"activated": " ",
-		"deactivated": " "
-	}
 },
 
 "clock#3": {

@@ -104,7 +104,8 @@ window#waybar.empty #window {
 }
 
 #backlight,
-#battery {
+#battery,
+#custom-keyboard {
 	color: #6DDDE3;
 	background: #0F1419;
 	border-radius: 50px 50px;
