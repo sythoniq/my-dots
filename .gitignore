@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 user-dirs.locale
 user-dirs.dirs 
 mirage 
@@ -24,3 +25,13 @@ Postman
 htop
 libreoffice
 pgadmin4
+=======
+mimeapps.list
+zen
+dconf
+go
+gtk-3.0
+pulse
+yay
+systemd
+>>>>>>> 6159364 (feat: changed to the lua stuff)
