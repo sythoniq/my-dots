@@ -1,3 +1,41 @@
+hl.config({
+	general = {
+		gaps_in  = 2,
+		gaps_out = 2,
+		border_size = 1,
+		col = {
+			active_border   = { colors = {"rgba(ffb59dff)", "rgba(55200cff)"}, angle = 90 },
+			inactive_border = "rgba(55200cff)",
+		},
+		resize_on_border = true,
+		allow_tearing = false,
+		layout = "dwindle",
+	},
+
+	decoration = {
+		rounding       = 10,
+		rounding_power = 2,
+
+		active_opacity   = 1.0,
+		inactive_opacity = 1.0,
+
+		shadow = {
+			enabled      = true,
+			range        = 4,
+			render_power = 3,
+			color        = 0xee1a1a1a,
+		},
+
+		blur = {
+			enabled   = false,
+		},
+	},
+
+	animations = {
+		enabled = true,
+	},
+})
+
 ------------------
 ---- MONITORS ----
 ------------------
@@ -10,44 +48,6 @@ hl.monitor({
     scale    = 1,
 })
 
-
-hl.config({
-    general = {
-        gaps_in  = 2,
-        gaps_out = 5,
-        border_size = 1,
-        col = {
-            active_border   = { colors = {"rgba(ffb59dff)", "rgba(55200cff)"}, angle = 90 },
-            inactive_border = "rgba(55200cff)",
-        },
-        resize_on_border = true,
-        allow_tearing = false,
-        layout = "dwindle",
-    },
-
-    decoration = {
-        rounding       = 10,
-        rounding_power = 2,
-
-        active_opacity   = 1.0,
-        inactive_opacity = 1.0,
-
-        shadow = {
-            enabled      = true,
-            range        = 4,
-            render_power = 3,
-            color        = 0xee1a1a1a,
-        },
-
-        blur = {
-            enabled   = false,
-        },
-    },
-
-    animations = {
-        enabled = true,
-    },
-})
 
 hl.config({
     dwindle = {
