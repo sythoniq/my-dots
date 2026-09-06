@@ -1,164 +1,167 @@
-* {
-    font-family: monospace;
-    font-weight: bold;
-	min-height: 0;  
-    /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
-    font-size: 100%;
-    font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+ * {
+    font-family: "AdwaitaMono";
+    border: none;
+    border-radius: 0px;
 }
-
 
 window#waybar {
-  background-color: rgba(26,27,38,0);
-  border-bottom: 1px solid rgba(26,27,38,0);
-  border-radius: 0px;
-  color: #E6B673;
+    background:transparent;
 }
 
-#waybar.empty, #waybar.tiled, #waybar.floating {
-	background-color: transparent;
+.modules-left {
+    background-color: #1a110f;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(#1a110f),0.9), alpha(#1a110f,0.9)) padding-box,
+        linear-gradient(#ffb59d,#55200c) border-box;
+    border: 2px solid transparent;	
+    opacity:0.8;
+    padding:0px;
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.2);
 }
 
-window#waybar.empty,
-window#waybar.empty #window {
-    background-color: transparent;
+.modules-right {
+    background-color: #1a110f;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(#1a110f),0.9), alpha(#1a110f,0.9)) padding-box,
+        linear-gradient(#ffb59d,#55200c) border-box;
+    border: 2px solid transparent;	
+    opacity:0.8;
+    padding:0px;
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.3);
 }
+
+.modules-center {
+    background-color: #1a110f;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 250%, alpha(darker(#1a110f),0.9), alpha(#1a110f,0.9)) padding-box,
+        linear-gradient(#ffb59d,#55200c) border-box;
+    border: 2px solid transparent;	
+    opacity:0.8;
+    box-shadow: inset 0px 2px 2px rgba(255, 255, 255, 0.2);
+}
+
+label.module {
+    font-size: 14px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 5px;
+}
+
+/* -----------------------------------------------------
+ * Workspaces
+ * ----------------------------------------------------- */
 
 #workspaces {
-  background: #0F1419;
-  margin: 5px;
-  padding: 0px 1px;
-  border-radius: 15px;
-  border: 0px;
-  font-style: normal;
-  color: #0F1419;
+    padding: 3px;
+    min-width: 176px;
 }
 
 #workspaces button {
-  padding: 0px 2px;
-  margin: 4px 3px;
-  border-radius: 15px;
-  border: 0px;
-  color: #6E757D;
-  background-color: #7DADEF;
-  opacity: 0.5;
-  transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+    color: #f1dfda;
+    border-radius: 3px;
+    padding:0px 5px 0px 5px;
+    margin:0px 2px 0px 2px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent;
 }
 
 #workspaces button.active {
-  padding: 0px 2px;
-  margin: 4px 3px;
-  border-radius: 15px;
-  border: 0px;
-  color: #6E757D;
-  background-color: #7DADEF;
-  opacity: 1.0;
-  min-width: 40px;
-  transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+    background:alpha(#ffb59d,0.2);
+    border: 1px solid transparent;
+    transition: all 0.3s ease-in-out;
+    min-width: 30px;
+    border-radius: 8px;
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
 #workspaces button:hover {
-  border-radius: 15px;
-  color: #0F1419;
-  background-color: #A7C9E4;
-  opacity: 0.8;
-  transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-
-}
-@keyframes gradient_horizontal {
-0% {
-  background-position: 0% 50%;
-	}
-50% {
-  background-position: 100% 50%;
-	}
-100% {
-  background-position: 0% 50%;
-	}
+    background:alpha(#e7bdb0,0.2);
+    border-radius: 15px;
 }
 
-@keyframes swiping {
-0% {
-  background-position: 0% 200%;
-	}
-100% {
-  background-position: 200% 200%;
-	}
+/* -----------------------------------------------------
+ * App Launcher
+ * ----------------------------------------------------- */
+
+#custom-appmenu {
+		color: #f1dfda;
 }
 
-#window {
-	color: #E6E1CF;
-	background: #0F1419;
-	border-radius: 50px 50px;
-	margin: 5px;
-	padding: 2px 15px;
+#custom-appmenu:hover {
 }
 
-#custom-swaync,
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
 #clock {
-	color: #6DDDE3;
-	background: #0F1419;
-	border-radius: 50px 50px;
-	margin: 5px;
-	padding: 2px 15px;
+		color: #f1dfda;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
-#backlight,
-#battery,
-#custom-keyboard {
-	color: #6DDDE3;
-	background: #0F1419;
-	border-radius: 50px 50px;
-	margin: 5px;
-	padding: 2px 15px;
+#clock:hover {
 }
+
+/* -----------------------------------------------------
+ * Backlight
+ * ----------------------------------------------------- */
 
 #backlight {
-	color: #6DDDE3;
-	background: #0F1419;
-	border-radius: 50px 50px;
-	margin: 5px;
-	padding: 2px 15px;
+	color: #f1dfda;
 }
 
-#battery.charging {
-	color: #77FC7F;
-	background: #0F1419;
-	border-radius: 50px 50px;
-	margin: 5px;
-	padding: 2px 15px;
+#backlight:hover {
 }
 
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
 
-#custom-menu {
-	color: #59C2FF;
-	background: #0F1419;
-	border-radius: 0px 15px 50px 0px;
-	margin: 5px 5px 5px 0px;
-	padding: 1px 15px;
+#pulseaudio {
+	color: #f1dfda;
+}
+
+#pulseaudio:hover {
+}
+
+#pulseaudio.muted {
+	color: #9FF527;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+	color: #f1dfda;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+	color: #f1dfda;
+}
+
+#battery.charging, #battery.plugged {
+	color: #9FF527;
+}
+
+#battery.full {
+	color: #91FFFD;
+}
+
+@keyframes blink {
+    to {
+        background-color: #1a110f;
+        color: #f1dfda;
+    }
 }
 
 #battery.critical:not(.charging) {
-	color: #f53c3c;
-	animation-name: blink;
-	animation-duration: 3.0s;
-	animation-timing-function: steps(12);
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+	color: #FC2323;
+	animation: 1s linear 0s infinite alternate blink;
 }
 
-#pulseaudio {
-	color: #59C2FF;
-	background: #0F1419;
-	border-radius: 50px 50px;
-	margin: 5px;
-	padding: 2px 15px;
-}
-
-#network {
-	color: #FF8F40;
-	background: #0F1419;
-	border-radius: 50px 50px;
-	margin: 5px;
-	padding: 2px 15px;
-}

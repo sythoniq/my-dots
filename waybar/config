@@ -1,184 +1,116 @@
 {
-"layer": "top", 
-"position": "top", 
-//"mode": "dock",
-"exclusive": true,
-"passthrough": false,
-"gtk-layer-shell": true,
-"margin-left": 6,
-"margin-right": 6,
-"margin-top": 2,
+	"layer": "top",
+	"margin-top": 0,
+	"margin-bottom": 0,
+	"margin-left": 0,
+	"margin-right": 0,
+	"spacing": 0,
 
-"modules-left": [
-	"custom/menu",
-	"custom/separator#blank_2",
-	"hyprland/workspaces",
-	"custom/separator#blank_2"
-],
-
-"modules-center": [
-	"clock#3",
-  "custom/keyboard"
-],
-		
-"modules-right": [
-  "network",
-	"battery",
-  "backlight",
-  "pulseaudio#1"
+	"modules-left": [
+		"custom/appmenu",
+		"hyprland/workspaces",
+		"custom/empty"
 	],
 
-
-"backlight": {
-	"interval": 2,
-	"align": 0,
-	"rotate": 0,
-	"format": "{icon} {percent}%",
-	"format-icons": ["","","","","","","","","","","","","","",""],
-	"tooltip-format": "backlight {percent}%",
-	"icon-size": 10,
-	"on-click": "",
-	"on-click-middle": "",
-	"on-click-right": "",
-	"on-update": ""
-},
-
-"custom/keyboard" : {
-	"format": "",
-	"on-click": "~/.config/waybar/toggle-laptop-keyboard.sh",
-	"tooltip-format": "Toggle Laptop Keyboard"
-},
-
-
-// CIRCLES Style
-"hyprland/workspaces": {
-	"active-only": false,
-	"all-outputs": true,
-	"format": "{icon}",
-	"show-special": false,
-	"on-click": "activate",
-	"on-scroll-up": "hyprctl dispatch workspace e+1",
-	"on-scroll-down": "hyprctl dispatch workspace e-1",
-    "persistent-workspaces": {
-      "*": 5
-	},
-	"format-icons": {
-		"active": "",
-		"default": ""
-	}
-},
-
-"battery": {
-	"align": 0,
-	"rotate": 0,
-	"full-at": 100,
-	"design-capacity": false,
-	"states": {
-		"good": 95,
-		"warning": 30,
-		"critical": 15
-	},
-	"format": "{icon} {capacity}%",
-	"format-charging": " {capacity}%",
-	"format-plugged": "󱘖 {capacity}%",
-	"format-alt-click": "click",
-	"format-full": "{icon} Full",
-	"format-alt": "{icon} {time}",
-	"format-icons": [
-		"󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+	"modules-center": [
+		"clock",
+		"custom/empty"
 	],
-	"format-time": "{H}h {M}min",
-	"tooltip": true,
-	"tooltip-format": "{timeTo} {power}w"
-},
 
-"network": {
-	"format": "{ifname}",
-	"format-wifi": "{icon}",
-	"format-ethernet": "󰌘",
-	"format-disconnected": "󰌙",
-	"tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
-	"format-linked": "󰈁 {ifname} (No IP)",
-	"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
-	"tooltip-format-ethernet": "{ifname} 󰌘",
-	"tooltip-format-disconnected": "󰌙 Disconnected",
-	"max-length": 30,
-	"format-icons": [
-		"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
-	]
-},
+	"modules-right": [
+		"pulseaudio",
+		"backlight",
+		"network",
+		"battery",
+	],
 
-
-"pulseaudio#1": {
-  "format": "{icon} {volume}%",
-  "format-bluetooth": "{icon} {volume}%",
-  "format-bluetooth-muted": " {icon}",
-  "format-muted": "󰸈",
-  "format-icons": {
-      "...": "",
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""]
-    },
-  "on-click": "pamixer --toggle-mute",
-  "on-click-right": "pavucontrol -t 3",
-  "tooltip": true,
-  "tooltip-format": "{icon} {desc} | {volume}%"
-},
-
-
-"custom/swaync": {
-	"tooltip": true,
-	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
-	"format": "{} {icon} ",
-	"format-icons": {
-		"notification": "<span foreground='red'><sup></sup></span>",
-		"none": "",
-		"dnd-notification": "<span foreground='red'><sup></sup></span>",
-		"dnd-none": "",
-		"inhibited-notification": "<span foreground='red'><sup></sup></span>",
-		"inhibited-none": "",
-		"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-		"dnd-inhibited-none": ""
+	"hyprland/workspaces": {
+		"on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({workspace = 'e+1'})\"",
+		"on-scroll-up":   "hyprctl dispatch \"hl.dsp.focus({workspace = 'e-1'})\"",
+		"on-click": "activate",
+		"active-only": false,
+		"all-outputs": true,
+		"format": "{}",
+		"format-icons": {
+			"urgent": "",
+			"active": "",
+			"default": ""
+		},
+		"persistent-workspaces": {
+			"*": 5
+		}
 	},
-	"return-type": "json",
-	"exec-if": "which swaync-client",
-	"exec": "swaync-client -swb",
-	"on-click": "sleep 0.1 && swaync-client -t -sw",
-	"on-click-right": "swaync-client -d -sw",
-	"escape": true
-},
 
-"custom/menu": {
-	"format": "  ",
-	"on-click": "pkill rofi || rofi -show drun -modi run,drun,filebrowser,window",
-	"tooltip": true,
-	"tooltip-format": "Left Click: Rofi Menu\nMiddle Click: Wallpaper Menu\nRight Click: Waybar Layout Menu"
-},
+	"custom/empty": {
+		"format": ""
+	},
 
-"custom/separator#blank": {
-	"format": "",
-	"interval": "once",
-	"tooltip": false
-},
+	"custom/appmenu": {
+		"format": "󰞷",
+		"on-click": "rofi -show drun",
+		"tooltip-format": "Left: Open the application launcher\n"
+	},
 
-"custom/separator#blank_2": {
-	"format": "  ",
-	"interval": "once",
-	"tooltip": false
-},
+	"clock": {
+		"format": "{:%H:%M %a}",
+		"on-click": "qs ipc call calendar toggle",
+		"timezone": "",
+		"tooltip": false
+	},
 
-"tray": {
-	"icon-size": 20,
-	"spacing": 4
-},
+	"network": {
+		"format": "{ifname}",
+		"format-wifi": " ",
+		"format-disconnected": "Disconnected ⚠",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50,
+	},
 
-"clock#3": {
-    "format": "{:L%I:%M %p - %d/%b}", //for AM/PM
-	"tooltip": false
-}
+	"battery": {
+		"interval": 1,
+		"states": {
+			// "good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-alt": "{icon} {time}",
+		// "format-good": "", // An empty format will hide the module
+		"format-full": "{icon}",
+		"format-icons": [
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
+		]
+	},
+
+		// Pulseaudio
+		"pulseaudio": {
+			"format": "{icon} {volume}%",
+			"format-bluetooth": "{icon} 󰂰 {volume}%",
+			"format-muted": "󰖁",
+			"format-icons": {
+				"headphone": "",
+				"hands-free": "",
+				"headset": "",
+				"default": [
+					"", "", "󰕾",  ""
+				]
+			}
+		},
+
+		// backlight:
+		"backlight": {
+			"format": "{icon} {percent}%",
+			"format-icons": [
+				"",
+				"",
+				""
+			],
+			"scroll-step": 10
+		}
 }
